@@ -1,0 +1,9 @@
+category: Graphics Gnome
+requires: cygwin glib2 gdk-pixbuf2 gtk2-x11 libX11_6 libXmu6 libfltk11 libilmbase6 libintl8 libjpeg62 liblcms1 libopenexr6 libpng12 libtiff5
+sdesc: "32-bit image retouching tool"
+ldesc: "CinePaint is a painting and retouching tool primarily used for 
+motion picture frame-by-frame retouching and dust-busting.
+
+CinePaint is different from other painting tools because it supports
+deep color depth image formats up to 32 bits per channel deep. For
+comparison, GIMP is limited 8-bit, and Photoshop to 16-bit."

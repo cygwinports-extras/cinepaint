@@ -1,0 +1,19 @@
+DESCRIPTION="32-bit image retouching tool"
+HOMEPAGE="http://www.cinepaint.org/"
+SRC_URI="mirror://sourceforge/${PN}/${PN}-${PVP[0]}.${PVP[1]}-${PVP[2]}.tar.gz"
+SRC_DIR="${PN}-${PVP[0]}.${PVP[1]}-${PVP[2]}"
+
+DIFF_EXCLUDES="${PN}-gtk.pc gimpintl.h"
+
+src_compile() {
+	cd ${S}
+	NO_AUTOHEADER=1
+	cygautoreconf
+	lndirs
+
+	cd ${B}
+	# defining THREAD_LIBS without THREAD disables broken icc_examin
+	cygconf --enable-gtk2 --disable-static --disable-print \
+			THREAD_LIBS=-lpthread LIBS=-lintl
+	cygmake
+}
