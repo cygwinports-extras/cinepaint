@@ -1,7 +1,10 @@
 DESCRIPTION="32-bit image retouching tool"
 HOMEPAGE="http://www.cinepaint.org/"
-SRC_URI="mirror://sourceforge/${PN}/${PN}-${PVP[0]}.${PVP[1]}-${PVP[2]}.tar.gz"
-SRC_DIR="${PN}-${PVP[0]}.${PVP[1]}-${PVP[2]}"
+SRC_URI="mirror://sourceforge/${PN}/${PN}-${PV[1]}.${PV[2]}-${PV[3]}.tar.gz"
+PATCH_URI="0.22.1-no-undefined.patch
+           0.22.1-exeext.patch"
+
+SRC_DIR="${PN}-${PV[1]}.${PV[2]}-${PV[3]}"
 
 DIFF_EXCLUDES="${PN}-gtk.pc gimpintl.h"
 

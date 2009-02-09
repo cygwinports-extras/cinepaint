@@ -1,0 +1,31 @@
+--- origsrc/cinepaint-0.22-1/configure.in	2007-06-12 00:51:17.000000000 -0500
++++ src/cinepaint-0.22-1/configure.in	2008-04-07 08:56:43.171875000 -0500
+@@ -420,11 +420,11 @@
+   if test -z "$XMU_LIB"; then
+     AC_CHECK_LIB(Xmu, XmuClientWindow,
+       [AC_CHECK_HEADER(X11/Xmu/WinUtil.h,
+-    CINEPAINT_REMOTE="cinepaint-remote"; XMU_LIB='-lXmu -lXt -lSM -lICE',
++    CINEPAINT_REMOTE='cinepaint-remote$(EXEEXT)'; XMU_LIB='-lXmu -lXt -lSM -lICE',
+     [AC_MSG_WARN(*** cinepaint-remote will not be built (XMU header file not found) ***)])],
+     [AC_CHECK_LIB(Xmu, XmuUpdateMapHints,
+       [AC_CHECK_HEADER(X11/Xmu/WinUtil.h,
+-        CINEPAINT_REMOTE="cinepaint-remote"; XMU_LIB='-lXmu -lXt',
++        CINEPAINT_REMOTE='cinepaint-remote$(EXEEXT)'; XMU_LIB='-lXmu -lXt',
+         [AC_MSG_WARN(*** cinepaint-remote will not be built (XMU header file not found) ***)])],
+     [AC_MSG_WARN(*** cinepaint-remote will not be built (XMU library not found) ***)], -lXt)], -lXt -lSM -lICE)
+   fi
+--- origsrc/cinepaint-0.22-1/libhalf/Makefile.am	2007-01-13 11:22:35.000000000 -0600
++++ src/cinepaint-0.22-1/libhalf/Makefile.am	2008-04-06 16:16:34.609375000 -0500
+@@ -25,10 +25,10 @@
+ 
+ toFloat_SOURCES = toFloat.cpp
+ 
+-eLut.h:	eLut
++eLut.h:	eLut$(EXEEXT)
+ 	./eLut > eLut.h
+ 
+-toFloat.h: toFloat
++toFloat.h: toFloat$(EXEEXT)
+ 	   ./toFloat > toFloat.h
+ 
+ BUILT_SOURCES = eLut.h toFloat.h
